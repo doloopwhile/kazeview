@@ -1,0 +1,17 @@
+#!/bin/bash
+wget http://sourceforge.net/projects/pyqt/files/sip/sip-4.15.2/sip-4.15.2.tar.gz
+wget http://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.1/PyQt-gpl-5.1.tar.gz
+
+include_dir=$VIRTUAL_ENV/include/$(python -c 'import sys;print("python{0[0]}.{0[1]}m".format(sys.version_info))')
+
+tar sip-*.tar.gz
+pushd sip-*
+  python configure.py -e $include_dir
+  make install
+popd
+
+tar xvf PyQt-*.tar.gz
+pushd PyQt-*
+  python configure.py --sip-incdir $include_dir
+  make install
+popd
