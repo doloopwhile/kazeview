@@ -41,6 +41,11 @@ class MainModel(QObject):
     def image(self):
         return self._image
 
+    def moveToNextImage(self):
+        pass
+
+    def moveToPrevImage(self):
+        pass
 
 def application():
     return QApplication([])

@@ -1,6 +1,7 @@
 from PySide.QtGui import (
     QMainWindow,
     QWidget,
+    QToolBar,
 )
 
 from kazeview.view.mainimageview import (
@@ -14,6 +15,7 @@ class MainWindow(QMainWindow):
         self._model = model
 
         self._imageView = MainImageView(model=self._model)
-
         self.setCentralWidget(self._imageView)
+
+        self.addToolBar(ToolBar())
 
